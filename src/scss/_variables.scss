@@ -1,5 +1,5 @@
 /** COLORS **/ 
-$blue-bg: #008AB3;
+$blue-bg: rgba(0, 138, 181, 1);
 $blue-text: #FFFFFF; 
 $blue-callout: darken($blue-bg, 30%);
 
@@ -20,14 +20,19 @@ $red-text: #FFFFFF;
 $red-callout: darken($red-bg, 30%);
 
 $white-bg: #FFFFFF;
-$white-text: #666666;
+$white-text: #333333;
 
 $gray-bg: #474C51;
 $gray-text: #FFFFFF;
 
 $nav-white-bg: rgba(255, 255, 255, 0.9);
-$nav-white-text: #666666;
+$nav-white-text: #CC144B;
 $nav-red-bg: transparent;
 $nav-red-text: #FFFFFF;
-$nav-blue-bg: transparent;
+$nav-blue-bg: rgba(0, 138, 181, 0.9);
 $nav-blue-text: #FFFFFF;
+$nav-orange-bg: rgba(239, 145, 0, 0.9);
+$nav-orange-text: #FFFFFF;
+$nav-gray-bg: #474C51;
+$nav-gray-text: #FFFFFF;
+
