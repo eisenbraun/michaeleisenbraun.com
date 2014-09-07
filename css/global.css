@@ -39,6 +39,12 @@ p {
   margin: 0;
   padding: 0; }
 
+blockquote {
+  float: both;
+  font-size: 1.8em;
+  font-weight: 700;
+  text-align: center; }
+
 a {
   color: #fff;
   text-decoration: none;
@@ -51,6 +57,9 @@ nav {
   top: 0px;
   width: 100%;
   z-index: 3; }
+nav img {
+  width: 64px;
+  margin-top: 15px; }
 nav ul {
   float: right; }
 nav ul li {
@@ -94,7 +103,7 @@ nav.red {
 section {
   min-height: 600px;
   margin: 0;
-  padding: 0 25px;
+  padding: 0 50px;
   position: relative;
   z-index: 2; }
 section article {
@@ -145,7 +154,7 @@ section.gray {
 
 footer {
   clear: both;
-  padding: 20px; }
+  padding: 50px; }
 
 .box {
   border: 2px solid #999;
@@ -168,8 +177,23 @@ footer {
   padding: 20px;
   text-align: center; }
 
+.columns {
+  -webkit-column-count: 2;
+  /* Chrome, Safari, Opera */
+  -moz-column-count: 2;
+  /* Firefox */
+  column-count: 2; }
+
+.icon {
+  width: 32px;
+  margin: 0px 15px -10px 15px;
+  display: inline-block; }
+
 /** UTILITIES */
 .hidden {
   display: none; }
+
+.center {
+  text-align: center; }
 
 /*# sourceMappingURL=global.css.map */
