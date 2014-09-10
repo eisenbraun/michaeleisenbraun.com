@@ -1,4 +1,4 @@
-var app = angular.module('me', ['me.controllers']);
+var app = angular.module('me', ['me.controllers', 'duScroll']);
 
 /** PAGE SECTIONS */
 var sections = {};
@@ -10,6 +10,6 @@ sections.contact = document.getElementById('contact');
 /** SECTIONS METHODS */
 sections.getBounds = function(obj) {
     return obj.getBoundingClientRect();
-}
+};
 
 

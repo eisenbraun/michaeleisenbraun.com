@@ -31,7 +31,8 @@ module.exports = function(grunt) {
         concat: {
             dist: {
                 src: [
-                    'bower_components/angular/angular.min.js',
+                    'bower_components/angular/angular.js',
+                    'bower_components/angular-scroll/angular-scroll.js',
                     'src/js/app.js',
                     'src/js/controllers.js',
                     'src/js/directives.js',

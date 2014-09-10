@@ -37,6 +37,9 @@ $nav-orange-text: #FFFFFF;
 $nav-gray-bg: #474C51;
 $nav-gray-text: #FFFFFF;
 
+$text-blue: #6FBEF3; 
+$text-gray: #666666;
+
 /** FONTS */
 $font-family: 'Roboto', sans-serif;
 
@@ -59,7 +62,19 @@ body, a {
 }
 
 a { 
+    font-family: $font-family;
+    font-weight: 300;
     text-decoration: none;
+
+    &.gray { 
+        color: $text-gray;
+        font-weight: 400;
+        padding-bottom: 20px;
+
+        &:hover { 
+            border-bottom: 2px solid #666;
+        }
+    }
 }
 
 p { 
@@ -80,6 +95,10 @@ h5,
 h6,
 label {
     color: #34495e;
+}
+
+.pure-g { 
+    letter-spacing: 0;
 }
 
 .pure-img-responsive {
@@ -166,9 +185,7 @@ a.pure-button-primary {
     }
 
     a {
-        font-family: $font-family;
-        font-weight: 300;
-        color: #6FBEF3;
+        color: $text-blue;
     }
 
     .pure-menu-selected a {
@@ -281,6 +298,7 @@ a.pure-button-primary {
     margin: 0 10px 0 0;
     position: relative; 
     top: 15px;
+    width: 36px;
 }
 
 /* This is the class used for the dark-background areas. */

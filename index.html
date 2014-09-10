@@ -13,10 +13,10 @@
         <nav class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
             <a class="pure-menu-heading" href=""><span>Michael Eisenbraun</span></a>
 
-            <ul>
-                <li class="pure-menu-selected"><a href="#">Projects</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Contact</a></li>
+            <ul ng-controller="NavCtrl">
+                <li ng-class="{'pure-menu-selected': selected == 'projects'}"><a href="#projects" ng-click="goTo('projects')">Projects</a></li>
+                <li ng-class="{'pure-menu-selected': selected == 'about'}"><a href="#about" ng-click="goTo('about')">About</a></li>
+                <li ng-class="{'pure-menu-selected': selected == 'contact'}"><a href="#contact" ng-click="goTo('contact')">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -33,7 +33,7 @@
     </section>
     <section id="projects" class="content-wrapper">
         <article class="content">
-            <h2 class="content-head is-center">GitHub Projects</h2>
+            <h2 class="content-head is-center">Projects</h2>
             <div class="pure-g">
                 <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
                     <img src="img/projects/columns-01.jpg" class="pure-img-responsive rounded-border">
@@ -44,7 +44,7 @@
                     <p>TYPE: <strong>jQuery Plugin</strong></p>
                     <p>A jQuery plugin to create a HTML tables from a JSON data source. It supports paging, searching, sorting, and theming. Columns is flexible and extensible with an API and support for plugins and custom templates.</p>
 
-                    <a href="" class="pure-button pure-button-primary">View Project</a>
+                    <a href="https://github.com/eisenbraun/columns" target="_blank" class="pure-button pure-button-primary">View Project</a>
                 </div>
             </div>
 
@@ -58,7 +58,7 @@
                     <p>TYPE: <strong>jQuery Plugin</strong></p>
                     <p>Guardian is a all-purpose form validation jQuery plugin. It was designed to be flexible and easy to extend to meet any need.</p>
 
-                    <a href="" class="pure-button pure-button-primary bottom">View Project</a>
+                    <a href="https://github.com/eisenbraun/guardian" target="_blank" class="pure-button pure-button-primary bottom">View Project</a>
                 </div>
             </div>
 
@@ -71,7 +71,7 @@
                     <h3 class="content-subhead">Nütip</h3>
                     <p>TYPE: <strong>jQuery Plugin</strong></p>
                     <p>A jQuery plugin that provide easy way of providing additional information to your web site.</p>
-                    <a href="" class="pure-button pure-button-primary bottom">View Project</a>
+                    <a href="https://github.com/eisenbraun/nutip" target="_blank" class="pure-button pure-button-primary bottom">View Project</a>
                 </div>
             </div>
         </article>
@@ -93,8 +93,12 @@
             <h2 class="content-head is-center">Contact</h2>
 
             <div class="pure-g">
-                <div class="l-box-lrg pure-u-1 is-center">
-                     <p><img src="img/icon/email-icon-gray.png" class="icon"><a href="mailto:me@michaeleisenbraun.com" class="gray-text">me@michaeleisenbraun.com</a></p>
+                <div class="width-280">
+                     <p class="no-wrap"><a href="mailto:me@michaeleisenbraun.com" class="gray"><img src="img/icon/email-icon-gray.png" class="icon">me@michaeleisenbraun.com</a></p>
+
+                     <p class="no-wrap"><a href="https://github.com/eisenbraun" target="_blank" class="gray"><img src="img/icon/github-icon-gray.png" class="icon">eisenbraun</a></p>
+
+                     <p class="no-wrap"><a href="https://twitter.com/thinkinginabox" target="_blank" class="gray"><img src="img/icon/twitter-icon-gray.png" class="icon">thinkinginabox</a></p>
                 </div>
             </div>
 
