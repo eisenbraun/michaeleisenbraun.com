@@ -1,0 +1,23 @@
+{
+  "name": "angular",
+  "version": "0.0.0",
+  "homepage": "https://github.com/eisenbraun/labs",
+  "authors": [
+    "Michael Eisenbraun"
+  ],
+  "description": "My first angular project",
+  "main": "[\"css/main.css\", \"js/main.min.js\"]",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.23",
+    "pure": "~0.5.0"
+  }
+}

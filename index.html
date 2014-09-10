@@ -1,196 +1,110 @@
 <!DOCTYPE html>
-<html lang="en"> 
-    <head>
-        <meta charset="utf-8">
-        <title>Michael Eisenbraun</title>
-        
-        <meta name="description" content="jQuery Plugins by Michael Eisenbraun include validation, pagination, tooltips, and more.">
-        <meta name="author" content="Michael Eisenbraun">
-        <meta name="viewport" content="initial-scale=1.0">
-        <link href="css/global.css" rel="stylesheet" media="screen">
-    </head>
-    <body>
-        <nav id="nav" class="red">
-            <img src="images/logo.png" alt="Me - Michael Eisenbraun">
+<html lang="en" ng-app="me">
+<head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Michael Eisenbraun</title>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+    <header class="header">
+        <nav class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+            <a class="pure-menu-heading" href=""><span>Michael Eisenbraun</span></a>
+
             <ul>
-                <li>PROJECTS</li>
-                <li>PROFILE</li>
-                <li>CONTACT</li>
+                <li class="pure-menu-selected"><a href="#">Projects</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
-        <section id="intro" class="red fixed" data-type="background" data-speed="8" class="pages">
-            <h1>Michael Eisenbraun <br>
+    </header>
+
+    <section id="intro" class="splash-container">
+        <div class="splash">
+            <h1 class="splash-head">Michael Eisenbraun <br> 
             Web Development and Design</h1>
-        </section>
 
-        <section id="placeholder" class="placeholder">
-        </section>
+            <p class="splash-subhead">
+                The Web is ever-changing. You must change with it.
+            </p>
+        </div>
+    </section>
+    <section id="projects" class="content-wrapper">
+        <article class="content">
+            <h2 class="content-head is-center">GitHub Projects</h2>
+            <div class="pure-g">
+                <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                    <img src="img/projects/columns-01.jpg" class="pure-img-responsive rounded-border">
+                </div>
 
-        <section id="projects" class="white">
-            <h2>&mdash; Projects &mdash;</h2>
-            <article>
-                <div class="box"></div>
-                <div class="details">
-                    <h3>Columns</h3>
+                <div class="l-box-lrg pure-u-1 pure-u-md-2-5 margin-center">
+                    <h3 class="content-subhead">Columns</h3>
+                    <p>TYPE: <strong>jQuery Plugin</strong></p>
                     <p>A jQuery plugin to create a HTML tables from a JSON data source. It supports paging, searching, sorting, and theming. Columns is flexible and extensible with an API and support for plugins and custom templates.</p>
 
-                    <a href="" class="btn">View on Github</a>
+                    <a href="" class="pure-button pure-button-primary">View Project</a>
                 </div>
-            </article>
+            </div>
 
-            <article>
-                <div class="details">
-                    <h3>Guardian</h3>
+            <div class="pure-g">
+                <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                    <img src="img/projects/guardian-01.jpg" class="pure-img-responsive rounded-border">
+                </div>
+
+                <div class="l-box-lrg pure-u-1 pure-u-md-2-5 margin-center">
+                    <h3 class="content-subhead">Guardian</h3>
+                    <p>TYPE: <strong>jQuery Plugin</strong></p>
                     <p>Guardian is a all-purpose form validation jQuery plugin. It was designed to be flexible and easy to extend to meet any need.</p>
 
-                    <a href="" class="btn">View on Github</a>
+                    <a href="" class="pure-button pure-button-primary bottom">View Project</a>
                 </div>
-                <div class="box"></div>
-            </article>
+            </div>
 
-            <article>
-                <div class="box"></div>
-                <div class="details">
-                    <h3>Nütip</h3>
-                    <p>A easy way of providing additional information to your web site.</p>
-
-                    <a href="" class="btn">View on Github</a>
+            <div class="pure-g">
+                <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                     <img src="img/projects/nutip-01.jpg" class="pure-img-responsive rounded-border">
                 </div>
-            </article>
 
-            <article>
-                <div class="details">
-                    <h3>jCalc</h3>
-                    <p></p>
-
-                    <a href="" class="btn">View on Github</a>
+                <div class="l-box-lrg pure-u-1 pure-u-md-2-5 margin-center">
+                    <h3 class="content-subhead">Nütip</h3>
+                    <p>TYPE: <strong>jQuery Plugin</strong></p>
+                    <p>A jQuery plugin that provide easy way of providing additional information to your web site.</p>
+                    <a href="" class="pure-button pure-button-primary bottom">View Project</a>
                 </div>
-                <div class="box"></div>
-            </article>
+            </div>
+        </article>
 
-            <footer></footer>
-        </section>
+        <article id="about" class="ribbon l-box-lrg pure-g">
+            <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                <img class="pure-img-responsive" alt="File Icons" width="300" src="img/common/file-icons.png">
+            </div>
+            <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
 
-        <section id="profile" class="blue">
-            <h2>&mdash; My Story &mdash;</h2>
-            <article class="columns">
-                
-                <p>In 1996, I bought my first book on HTML. It was just a hobby. I never believed I would make a career out of it. It was the mid-90s, and the web was a very different place. Many people didn't take the web seriously, just as I didn't take web development seriously. 
+                <h2 class="content-head content-head-ribbon">About Me</h2>
 
-                <blockquote>It was just a hobby</blockquote> 
+                <p>I am ambitious, a self starter, quick to learn and motivated. I have over 8 years of professional experience. I specialize in front-end development with knowledge in HTML5, CSS3, SASS, JavaScript, jQuery, AngularJS, Sencha, PHP, CodeIgnitor, and Laravel.</p> 
+   
+            </div>
+        </article>
 
-                <p>Those were simpler times. Font tags, color attributes, and table layouts were the norm, but that didn't last long.</p>
+        <article id="contact" class="content">
+            <h2 class="content-head is-center">Contact</h2>
 
-                <blockquote>The Web is ever-changing, and if you want to survive, you must change with it.</blockquote>
+            <div class="pure-g">
+                <div class="l-box-lrg pure-u-1 is-center">
+                     <p><img src="img/icon/email-icon-gray.png" class="icon"><a href="mailto:me@michaeleisenbraun.com" class="gray-text">me@michaeleisenbraun.com</a></p>
+                </div>
+            </div>
 
-                <p>It would take 10 years before I was able to turn my hobby into a paycheck. I finally started taking it seriously. Since that time, I have understood how crucial it is to constantly be learning and improving my skills. I have learned the hard way how relying on yesterday's achievements today, means I will be left behind tomorrow. The Web is ever-changing, and if you want to survive you must change with it.</p>
+        </article>
 
-                <blockquote>New Country. New Challenge. New Chance.</blockquote>
+        <footer class="footer l-box is-center">
+            &copy; 2014 Michael Eisenbraun
+        </footer>
 
-                <p>In August 2014, I moved from the States to Ottawa, Ontario, Canada. After 7 years with the same company, I was ready for something new. A chance to seek out new challenges, new careers and new opportunities. I am ambitious, a self starter, quick to learn and motivated. I have over 8 years of professional experience. I specialize in front-end development with knowledge in HTML5, CSS3, SASS, JavaScript, jQuery, AngularJS, Sencha, PHP, CodeIgnitor, and Laravel.</p>
-
-            </article>
-            <footer></footer>
-        </section>
-
-        <section id="contact" class="gray">
-            <h2>&mdash; Contact &mdash;</h2>
-            <article class="columns"> 
-                <p class="center"><img src="images/email-icon.png" class="icon"><a href="mailto:me@michaeleisenbraun.com">me@michaeleisenbraun.com</a><p>
-                <p class="center"><a href="http://www.github.com"><img src="images/github-icon.png" class="icon"></a><a href="http://www.twitter.com"><img src="images/twitter-icon.png" class="icon"></a></p>
-            </article>
-            <footer></footer>
-        </section>
-        <!--<div class="wrapper"> 
-            <nav>
-                <ul>
-                    <li> 
-                        <a href="/" class="active">Home</a>
-                    </li>
-                    <li>
-                        <a href="/guardian">Guardian</a>
-                    </li>
-                    <li>
-                        <a href="/columns">Columns</a>
-                    </li>
-                    <li>
-                        <a href="/nutip">NüTip</a>
-                    </li>
-                </ul>
-            </nav>
-
-            <header>    
-                <h1>jQuery Plugins</h1>
-                <h2>by Michael Eisenbraun</h2>
-            </header>
-             
-            <section id="guardian">
-                    <article>
-                        <h1>Guardian <span class="sticker">v 1.0</span></h1>
-                        <h2>All-purpose form validation</h2>
-                        
-                        <p><a href="https://github.com/eisenbraun/guardian" class="btn" target="_blank">Download</a> <a href="/guardian">Learn more</a></p>
-                        <footer></footer>
-                    </article>
-                    
-            </section>
-            <section id="columns">
-                <article> 
-                    <div>
-                    <h1>Columns <span class="sticker">v 2.0</span></h1>
-                    <h2>Search, sort, and paginate your JSON data</h2>
-                    
-                    <p><a href="https://github.com/eisenbraun/columns" class="btn" target="_blank">Download</a> <a href="/columns">Learn more</a></p>
-                    </div>
-                    <footer></footer>
-                </article>                  
-            </section>
-            <!-- <section id="nutip">
-                <article>
-                    <h1>NüTip <span class="sticker">Beta</span></h1>
-                    <h2>A new way of providing visitor's with additional information</h2>
-                    
-                    <p><a href="https://github.com/eisenbraun/nutip" class="btn" target="_blank">Download</a> <a href="/nutip">Learn more</a></p>
-
-                    <footer></footer>
-                </article>
-                    
-            </section>
-            <section id="muse" class="disabled">
-                <h3 class="banner">Coming Soon</h3>
-                <article>                   
-                    <h1>Muse <span class="sticker">v 1.0</span></h1>
-                    <h2>A flat-file, server-side language free, jQuery CMS</h2>
-
-                    <footer></footer>
-                </article>
-                    
-            </section>
-            <section id="lapsus" class="disabled">
-                <h3 class="banner">Coming Soon</h3>
-                <article>
-                    <img class="pull-right">
-
-                    <h1>Lapsus <span class="sticker">Beta</span></h1>
-                    <h2>Turn your site into a vertical slide show</h2>
-                                        
-                    <footer></footer>
-                </article>
-                    
-            </section>
-                        
-            <footer> 
-                <article> 
-                    
-                </article>
-                <article>
-                    <p>Send Inquires to <a href="mailto:me@michaeleisenbraun.com">me@michaeleisenbraun.com</a></p>
-                </article>
-                
-            
-                <div class="copyright"><sup>&copy;</sup>2014 Michael Eisenbraun</div>
-            </footer>
-        </div>-->
-        <script src="js/global.min.js"></script>
-    </body>
+    </section>
+  <script src="js/main.js"></script>
+</body>
 </html>

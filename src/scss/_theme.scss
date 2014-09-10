@@ -1,0 +1,359 @@
+/** COLORS **/ 
+//$blue-bg: rgba(0, 138, 181, 1);
+$blue-bg: #1f8dd6;
+$blue-text: #FFFFFF; 
+$blue-callout: darken($blue-bg, 30%);
+
+$orange-bg: #E8930C;
+$orange-text: #FFFFFF; 
+$orange-callout: darken($orange-bg, 30%); 
+
+$green-bg: #14CC58;
+$green-text: #FFFFFF; 
+$green-callout: darken($green-bg, 30%);
+
+$purple-bg: #7714CC;
+$purple-text: #FFFFFF; 
+$purple-callout: darken($purple-bg, 30%);
+
+$red-bg: #CC144B;
+$red-text: #FFFFFF; 
+$red-callout: darken($red-bg, 30%);
+
+$white-bg: #FFFFFF;
+$white-text: #333333;
+
+$gray-bg: #474C51;
+$gray-text: #FFFFFF;
+
+$nav-white-bg: rgba(255, 255, 255, 0.9);
+$nav-white-text: #CC144B;
+$nav-red-bg: transparent;
+$nav-red-text: #FFFFFF;
+$nav-blue-bg: rgba(0, 138, 181, 0.9);
+$nav-blue-text: #FFFFFF;
+$nav-orange-bg: rgba(239, 145, 0, 0.9);
+$nav-orange-text: #FFFFFF;
+$nav-gray-bg: #474C51;
+$nav-gray-text: #FFFFFF;
+
+/** FONTS */
+$font-family: 'Roboto', sans-serif;
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,700,300);
+
+
+/** APP SPECIFIC CSS */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*
+ * -- BASE STYLES --
+ * Most of these are inherited from Base, but I want to change a few.
+ */
+body, a {
+    font-family: $font-family;
+}
+
+a { 
+    text-decoration: none;
+}
+
+p { 
+    font-size: 1.2em;
+    font-weight: 300;
+    line-height: 1.8em;
+
+    strong { 
+        font-weight: 400;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+    color: #34495e;
+}
+
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+
+a.pure-button-primary {
+    border-radius: 5px;
+    font-family: $font-family;
+    font-size: 1.5em;
+    font-weight: 300;
+    line-height: 35px;
+    width: 100%;
+}
+
+/*
+ * -- LAYOUT STYLES --
+ * These are some useful classes which I will need
+ */
+.l-box {
+    padding: 1em;
+}
+
+.l-box-lrg {
+    color: #333;
+    padding: 2em;
+    //border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.is-center {
+    text-align: center;
+}
+
+.pure-g { 
+    margin: 50px 0;
+}
+
+/*
+ * -- PURE FORM STYLES --
+ * Style the form inputs and labels
+ */
+.pure-form label {
+    margin: 1em 0 0;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.pure-form input[type] {
+    border: 2px solid #ddd;
+    box-shadow: none;
+    font-size: 100%;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+
+/*
+ * -- MENU STYLES --
+ * I want to customize how my .pure-menu looks at the top of the page
+ */
+
+.home-menu {
+    padding: 0.5em;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+
+    &.pure-menu-open {
+        background: #2d3e50;
+    }
+
+    .pure-menu-heading {
+        background-image: url('../img/common/logo.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 54px;
+        width: 54px;
+
+        span { 
+            display: none;
+        }
+    }
+
+    a {
+        font-family: $font-family;
+        font-weight: 300;
+        color: #6FBEF3;
+    }
+
+    .pure-menu-selected a {
+        color: $nav-blue-text;
+
+    }
+
+    li a:hover, li a:focus {
+        background: transparent;
+        color: $nav-blue-text;
+    }
+
+}
+
+.pure-menu.pure-menu-open.pure-menu-fixed {
+    /* Fixed menus normally have a border at the bottom. */
+    border-bottom: none;
+    /* I need a higher z-index here because of the scroll-over effect. */
+    z-index: 4;
+}
+
+/*
+ * -- SPLASH STYLES --
+ * This is the top section that appears on the page.
+ */
+
+.splash-container {
+    background: $blue-bg;
+    color: $blue-text;
+    height: 88%;
+    left: 0;
+    overflow: hidden;
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.splash {
+    /* absolute center .splash within .splash-container */
+    color: $red-text;
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 100px; left: 0; bottom: 0; right: 0;
+    text-align: center;
+}
+
+/* This is the main heading that appears on the blue section */
+.splash-head {
+    color: $red-text;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.3em;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-align: center;
+}
+
+/* This is the subheading that appears on the blue section */
+.splash-subhead {
+    color: white;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+/*
+ * -- CONTENT STYLES --
+ * This represents the content area (everything below the blue section)
+ */
+.content-wrapper {
+    /* These styles are required for the "scroll-over" effect */
+    position: absolute;
+    top: 87%;
+    width: 100%;
+    min-height: 12%;
+    z-index: 2;
+    background: white;
+
+}
+
+/* This is the class used for the main content headers (<h2>) */
+.content-head {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 2em 0 1em;
+}
+
+/* This is a modifier class used when the content-head is inside a ribbon */
+.content-head-ribbon {
+    color: white;
+}
+
+/* This is the class used for the content sub-headers (<h3>) */
+.content-subhead {
+    color: #1f8dd6;
+    font-size: 2.0em;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* This is class used for the icons */ 
+.icon { 
+    margin: 0 10px 0 0;
+    position: relative; 
+    top: 15px;
+}
+
+/* This is the class used for the dark-background areas. */
+.ribbon {
+    background: #2d3e50;
+    color: #aaa;
+}
+
+/* This is the class used for the footer */
+.footer {
+    background: #111;
+    color: #eee;
+    font-family: $font-family;
+    font-weight: 300;
+}
+
+/*
+ * -- TABLET (AND UP) MEDIA QUERIES --
+ * On tablets and other medium-sized devices, we want to customize some
+ * of the mobile styles.
+ */
+@media (min-width: 48em) {
+
+    /* We increase the body font size */
+    body {
+        font-size: 16px;
+    }
+    /* We want to give the content area some more padding */
+    .content {
+        padding: 1em;
+    }
+
+    /* We can align the menu header to the left, but float the
+    menu items to the right. */
+    .home-menu {
+        text-align: left;
+    }
+        .home-menu ul {
+            float: right;
+        }
+
+    /* We increase the height of the splash-container */
+/*    .splash-container {
+        height: 500px;
+    }*/
+
+    /* We decrease the width of the .splash, since we have more width
+    to work with */
+    .splash {
+        width: 50%;
+        height: 50%;
+    }
+
+    .splash-head {
+        font-size: 250%;
+    }
+
+
+    /* We remove the border-separator assigned to .l-box-lrg */
+    .l-box-lrg {
+        border: none;
+    }
+
+}
+
+/*
+ * -- DESKTOP (AND UP) MEDIA QUERIES --
+ * On desktops and other large devices, we want to over-ride some
+ * of the mobile and tablet styles.
+ */
+@media (min-width: 78em) {
+    /* We increase the header font size even more */
+    .splash-head {
+        font-size: 300%;
+    }
+}
