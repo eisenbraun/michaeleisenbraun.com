@@ -5,8 +5,7 @@ controllers.controller('NavCtrl', function($scope, $location, $anchorScroll, $do
     $scope.bounds = {};
 
     $scope.getBounds = function(element) {
-        console.log(sections);
-        for(section in sections) { 
+        for(var section in sections) { 
             if(typeof sections[section] === 'object') {
                 $scope.bounds[section] = sections[section].getBoundingClientRect();
             }
@@ -45,7 +44,7 @@ controllers.controller('NavCtrl', function($scope, $location, $anchorScroll, $do
         });
 
         console.log($scope.selected);
-    }
+    };
 
     $scope.init();
 });
