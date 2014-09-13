@@ -49,7 +49,8 @@ app.updateNav = function() {
     
     nav.parentNode.removeChild(nav);
 
-    var top = window.scrollY +70; 
+    var top = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+    top += 70;
 
     if(top >= app.bounds.contact.top) {
         nav = app.updateClass(nav, 'navContact');
@@ -67,10 +68,43 @@ app.updateNav = function() {
 
 /** Moves element a speed relative to Scroll */
 app.parallax = function(element, speed, offset) { 
-    var top = (window.scrollY/speed * -1) + offset;
+    var top = (document.body.scrollTop/speed * -1) + offset;
 
     element.setAttribute('style', 'top:'+top+
-        'px'); 
+        'px;'); 
+};
+
+/** Scroll page to the desired location */
+app.scrollTo = function(section, speed) {
+    var point = app.bounds[section].top, 
+    start = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop, 
+    i = start; 
+
+    console.log(start);
+
+    function animate(i, speed) { 
+        if(point < start) {
+            if(i >= point) {
+                window.scrollTo(0, i);
+                i -= speed;
+                setTimeout(function() { 
+                    animate(i, speed);
+                }, 1);
+            }
+        } else {
+            if(i <= point) {
+                window.scrollTo(0, i);
+                i += speed;
+                setTimeout(function() { 
+                    animate(i, speed);
+                }, 1);
+            }
+        }
+
+        
+    }
+
+    animate(i, speed);
 };
 
 
@@ -86,6 +120,14 @@ app.init = function() {
         }, 200);
 
         app.parallax(document.getElementById('splash'), 3, 100);
+    });
+
+    app.nav.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        if(e.target && e.target.nodeName == 'A') {
+            app.scrollTo(e.target.getAttribute('href').substring(1), 40);
+        }
     });
 };
 

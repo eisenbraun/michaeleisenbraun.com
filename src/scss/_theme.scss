@@ -290,6 +290,11 @@ a.pure-button-primary {
     margin: 0;
 }
 
+/* We want to give the content area some padding */
+    .content {
+        padding: 4em 1em;
+    }
+
 /* This is class used for the icons */ 
 .icon { 
     margin: 0 10px 0 0;
@@ -326,7 +331,7 @@ a.pure-button-primary {
     }
     /* We want to give the content area some more padding */
     .content {
-        padding: 1em;
+        padding: 4em 1em;
     }
 
     /* We can align the menu header to the left, but float the

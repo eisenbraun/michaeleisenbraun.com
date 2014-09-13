@@ -28,27 +28,27 @@ module.exports = function(grunt) {
             } 
         },
 
-        concat: {
+        /*concat: {
             dist: {
                 src: [
                     'src/js/app.js',
                 ],
                 dest: 'js/main.js'
             },
-        },
+        },*/
 
-        /*uglify: {
+        uglify: {
             dist: { 
                 files: { 
                     'js/main.js': 'src/js/app.js'
                 }
             }
-        },*/
+        },
 
         watch: {
             scripts: {
                 files: ['src/js/*.js'],
-                tasks: ['jshint','concat'],
+                tasks: ['jshint','uglify'],
                 options: {
                     spawn: false,
                 },
@@ -71,6 +71,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['jshint', 'concat', 'sass', 'watch']);
+    grunt.registerTask('default', ['jshint', 'uglify', 'sass', 'watch']);
 
 };
