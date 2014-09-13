@@ -119,7 +119,7 @@ app.init = function() {
             }
         }, 200);
 
-        app.parallax(document.getElementById('splash'), 3, 100);
+        //app.parallax(document.getElementById('splash'), 3, 100);
     });
 
     app.nav.addEventListener('click', function(e) {
