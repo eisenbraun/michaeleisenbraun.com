@@ -57,7 +57,8 @@ $font-family: 'Roboto', sans-serif;
  * -- BASE STYLES --
  * Most of these are inherited from Base, but I want to change a few.
  */
-body, a {
+body {
+    color: #333;
     font-family: $font-family;
 }
 
@@ -98,10 +99,6 @@ label {
     color: #34495e;
 }
 
-.pure-g { 
-    //letter-spacing: -0.3em;
-}
-
 .pure-img-responsive {
     max-width: 100%;
     height: auto;
@@ -126,17 +123,13 @@ a.pure-button-primary {
 }
 
 .l-box-lrg {
-    color: #333;
+    //color: #333;
     padding: 2em;
     //border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .is-center {
     text-align: center;
-}
-
-.pure-g { 
-    margin: 50px 0;
 }
 
 /*
@@ -264,12 +257,15 @@ a.pure-button-primary {
  */
 .content-wrapper {
     /* These styles are required for the "scroll-over" effect */
+    background: white;
+    -webkit-box-shadow: 0px -3px 5px 0px rgba(50, 50, 50, 0.4);
+    -moz-box-shadow:    0px -3px 5px 0px rgba(50, 50, 50, 0.4);
+    box-shadow:         0px -3px 5px 0px rgba(50, 50, 50, 0.4);
+    min-height: 12%;
     position: absolute;
     top: 87%;
     width: 100%;
-    min-height: 12%;
     z-index: 2;
-    background: white;
 
 }
 
@@ -306,6 +302,7 @@ a.pure-button-primary {
 .ribbon {
     background: #2d3e50;
     color: #aaa;
+    padding: 6em 0;
 }
 
 /* This is the class used for the footer */
@@ -374,5 +371,9 @@ a.pure-button-primary {
     /* We increase the header font size even more */
     .splash-head {
         font-size: 300%;
+    }
+
+    .content { 
+        padding: 8em 0;
     }
 }

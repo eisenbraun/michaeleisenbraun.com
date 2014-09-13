@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="me">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta charset="utf-8">
@@ -13,16 +13,16 @@
         <nav class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
             <a class="pure-menu-heading" href=""><span>Michael Eisenbraun</span></a>
 
-            <ul ng-controller="NavCtrl">
-                <li ng-class="{'pure-menu-selected': selected == 'projects'}"><a href="#projects" ng-click="goTo('projects')">Projects</a></li>
-                <li ng-class="{'pure-menu-selected': selected == 'about'}"><a href="#about" ng-click="goTo('about')">About</a></li>
-                <li ng-class="{'pure-menu-selected': selected == 'contact'}"><a href="#contact" ng-click="goTo('contact')">Contact</a></li>
+            <ul id="nav">
+                <li id="navProjects"><a href="#projects">Projects</a></li>
+                <li id="navAbout"><a href="#about">About</a></li>
+                <li id="navContact"><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="intro" class="splash-container">
-        <div class="splash">
+        <div class="splash" id="splash">
             <h1 class="splash-head">Michael Eisenbraun <br> 
             Web Development and Design</h1>
 
@@ -31,9 +31,9 @@
             </p>
         </div>
     </section>
-    <section id="projects" class="content-wrapper">
-        <article class="content">
-            <h2 class="content-head is-center">Projects</h2>
+    <section class="content-wrapper">
+        <article id="projects" class="content">
+            <h2 class="content-head is-center">Github Projects</h2>
             <div class="pure-g">
                 <div class="l-box-lrg pure-u-1 pure-u-lg-3-5">
                     <img src="img/projects/columns-01.jpg" class="pure-img-responsive rounded-border">
@@ -76,21 +76,23 @@
             </div>
         </article>
 
-        <article id="about" class="ribbon l-box-lrg pure-g">
-            <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
-                <img class="pure-img-responsive" alt="File Icons" width="300" src="img/common/file-icons.png">
-            </div>
-            <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+        <article id="about" class="ribbon">
+            <div class="l-box-lrg pure-g">
+                <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+                    <img class="pure-img-responsive" alt="File Icons" width="300" src="img/common/file-icons.png">
+                </div>
+                <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
 
-                <h2 class="content-head content-head-ribbon">About Me</h2>
+                    <h2 class="content-head content-head-ribbon">About Me</h2>
 
-                <p>My name is Michael Eisenbraun. I am ambitious, a self starter, a quick to learner and motivated. I have over 8 years of professional experience in web development and design. I specialize in front-end development with knowledge in HTML5, CSS3, SASS, JavaScript, jQuery, AngularJS, Sencha, PHP, CodeIgnitor, and Laravel.</p> 
-   
+                    <p>My name is Michael Eisenbraun. I am ambitious, a self starter, a quick to learner and motivated. I have over 8 years of professional experience in web development and design. I specialize in front-end development with knowledge in HTML5, CSS3, SASS, JavaScript, jQuery, AngularJS, Sencha, PHP, CodeIgnitor, and Laravel.</p> 
+       
+                </div>
             </div>
         </article>
 
         <article id="contact" class="content">
-            <h2 class="content-head is-center">Contact</h2>
+            <h2 class="content-head is-center">Contact Me</h2>
 
             <div>
                 <div class="width-300">
@@ -109,6 +111,6 @@
         </footer>
 
     </section>
-  <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -31,22 +31,24 @@ module.exports = function(grunt) {
         concat: {
             dist: {
                 src: [
-                    'bower_components/angular/angular.js',
-                    'bower_components/angular-scroll/angular-scroll.js',
                     'src/js/app.js',
-                    'src/js/controllers.js',
-                    'src/js/directives.js',
-                    'src/js/filters.js',
-                    'src/js/services.js'
                 ],
                 dest: 'js/main.js'
             },
         },
 
+        /*uglify: {
+            dist: { 
+                files: { 
+                    'js/main.js': 'src/js/app.js'
+                }
+            }
+        },*/
+
         watch: {
             scripts: {
                 files: ['src/js/*.js'],
-                tasks: ['concat'],
+                tasks: ['jshint','concat'],
                 options: {
                     spawn: false,
                 },
