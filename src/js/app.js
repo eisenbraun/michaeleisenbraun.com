@@ -111,7 +111,7 @@ app.scrollTo = function(section, speed) {
 app.init = function() { 
     app.getBounds();
 
-    window.addEventListener("scroll", function() {
+    /*window.addEventListener("scroll", function() {
         setTimeout(function() { 
             if(!app.navUpdating) { 
                 app.navUpdating = true;
@@ -120,7 +120,7 @@ app.init = function() {
         }, 200);
 
         //app.parallax(document.getElementById('splash'), 3, 100);
-    });
+    });*/
 
     app.nav.addEventListener('click', function(e) {
         e.preventDefault();
