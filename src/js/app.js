@@ -80,8 +80,6 @@ app.scrollTo = function(section, speed) {
     start = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop, 
     i = start; 
 
-    console.log(start);
-
     function animate(i, speed) { 
         if(point < start) {
             if(i >= point) {
@@ -119,7 +117,7 @@ app.init = function() {
             }
         }, 200);
 
-        //app.parallax(document.getElementById('splash'), 3, 100);
+        app.parallax(document.getElementById('splash'), 3, 100);
     });*/
 
     app.nav.addEventListener('click', function(e) {
