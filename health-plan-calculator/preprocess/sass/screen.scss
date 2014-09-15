@@ -1,0 +1,202 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/css3";
+@import "corporate/0.1.0/screen.scss";
+
+
+body { 
+	background: #fff;
+	color: #333;
+	font-family: arial, verdana, helvetica;
+}
+
+label { 
+	color: #333;
+	
+	small { 
+		color: #666;
+	}
+}
+
+.ui-tooltip { 
+	font-size: 12px;
+}
+
+section {
+	background: #fff; 
+	padding: 0px;
+	margin: 0 auto 130px auto; 
+	
+	article {
+		padding: 130px 0 20px 0;
+		visibility: hidden;
+		
+		h3 { 
+			margin-bottom: 0px;
+		}
+		
+		&.start { 
+			visibility: visible;
+			background: #aedcf7; 
+			padding:0;
+			position: fixed; 
+			width: 100%; 
+			z-index: 1;
+			
+			fieldset { 
+				padding: 20px 10px 0 10px; 
+				max-width: 800px; 
+				
+				h1, h3, p, div, .btn { 
+					margin: 10px 0;	
+				}
+				
+				h1 { 
+					padding-top: 10px; 
+				}
+			}
+		}
+	}
+	
+	.policyholders {
+		margin: 0px;
+		color: #003a70;
+		visibility: hidden; 
+		
+		li { 
+			cursor: pointer;
+			padding: 5px 15px;
+			@include border-radius(5px 5px 0 0);
+			
+			&.active {
+				color: #003a70;
+				background: #fff;
+			}
+		}
+	}
+	
+	fieldset { 
+		//background-color: #fff; 
+		padding: 0;
+		//border: 1px solid #ccc;
+		//@include border-radius(5px);
+		//max-width: 1000px;
+		margin: 0 auto;
+		//max-width: 280px;
+		
+		.col { 
+			width: 32%;
+			float: left;
+		}
+		
+		&.summary { 
+			display:none;
+		}
+		
+		.input-group, .input-header, .input-thead { 
+			padding: 20px 10px; 
+			
+			.input-container { 
+				max-width: 800px; 
+				padding: 0 20px;
+				margin: 0 auto;
+				height: 38px;
+			}
+		}
+		
+		.input-header { 
+			margin-bottom: 10px;
+		}
+		.input-thead { 
+			padding: 20px 10px 0 10px; 
+		}
+		
+		
+		.input-group {
+			&:nth-child(odd), &.alt { 
+		 		background: #EEF7FD;
+		 	}
+		}
+		
+		.total { 
+			//visibility: hidden; 
+			//float: right; 
+			
+			.green {
+				color: #708f33;
+			}
+		}
+		
+		label { 
+			width: 280px;
+			display:inline-block;
+		}
+	}
+}
+
+footer { 
+	position: fixed; 
+	width: 100%; 
+	bottom: 0; 
+	background: #f9f9f9;
+	border-top: 1px solid #e7e7e7; 
+	opacity: 1.0; 
+	padding: 0;
+	margin: 0;
+	height: 0px;
+	font-size: 0.85em;
+	
+	table { 
+		max-width: 1000px;
+		margin: 5px auto 0px auto;
+		text-align: right;
+		
+		thead { 
+			background: transparent;
+			
+			th { 
+				padding-top: 10px;
+				padding-bottom: 10px;
+				text-align: right;
+				vertical-align: middle; 
+			}
+		}
+		
+		tbody { 
+			
+			
+			td { 
+				vertical-align: middle;
+			}
+		}
+		
+		tr { 
+			border-bottom: 1px solid #e7e7e7;
+		}
+		
+		tr.even, tr.alt, tr:nth-of-type(even) {
+			background: transparent;
+		}
+	}
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+	width: 80px; 
+	height: 35px;
+	display: inline-block;
+	text-align: right;
+	margin: 0;
+	
+	&.input-inline { 
+		display: inline-block;
+		width: auto;
+		margin-left: 5px;
+	}
+	
+	&.date { 
+		width: 115px;
+	}
+}

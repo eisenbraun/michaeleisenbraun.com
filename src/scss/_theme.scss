@@ -171,8 +171,8 @@ a.pure-button-primary {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        height: 54px;
-        width: 54px;
+        height: 48px;
+        width: 48px;
 
         span { 
             display: none;
@@ -180,7 +180,9 @@ a.pure-button-primary {
     }
 
     a {
-        color: $text-blue;
+        color: white;
+        font-weight: 400;
+        text-transform: uppercase;
     }
 
     .pure-menu-selected a {
@@ -208,7 +210,11 @@ a.pure-button-primary {
  */
 
 .splash-container {
-    background: $blue-bg;
+    background-color: #4c5c6e;
+    background-image: url('../img/common/splash-bg.jpg');
+    background-position: right; 
+    background-attachment: scroll; 
+    background-size: cover;
     color: $text-white;
     height: 88%;
     left: 0;
@@ -234,12 +240,19 @@ a.pure-button-primary {
 .splash-head {
     color: $text-white;
     font-size: 24px;
-    font-weight: 300;
-    line-height: 1.0em;
+    font-weight: 700;
+    line-height: 0.7em;
     margin: 0;
-    padding: 0;
+    padding: 20px 0;
     position: relative;
-    text-align: center;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.splash-line {
+     border-bottom: 4px solid #FFF;
+     text-align: left;
+     width: 200px;
 }
 
 /* This is the subheading that appears on the blue section */
@@ -377,7 +390,7 @@ a.pure-button-primary {
 @media (min-width: 78em) {
     /* We increase the header font size even more */
     .splash-head {
-        font-size: 300%;
+        font-size: 400%;
     }
 
     .content { 
