@@ -41,6 +41,11 @@ $text-blue: #6FBEF3;
 $text-gray: #666666;
 $text-white: #FFFFFF;
 
+$menu-bg: #2d3e50; 
+$menu-bg-hover: darken($menu-bg, 10%);
+
+$splash-bg: #4c5c6e;
+$ribbon-bg: #2d3e50;
 /** FONTS */
 $font-family: 'Roboto', sans-serif;
 
@@ -98,6 +103,11 @@ h5,
 h6,
 label {
     color: #34495e;
+}
+
+h4 {
+    font-family: $font-family;
+    font-weight: 300;
 }
 
 .pure-img-responsive {
@@ -158,30 +168,33 @@ a.pure-button-primary {
  */
 
 .home-menu {
-    padding: 0.5em;
     text-align: center;
     box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
 
     &.pure-menu-open {
-        background: #2d3e50;
+        background: $menu-bg;
     }
 
     .pure-menu-heading {
-        background-image: url('../img/common/logo.png');
+        /*background-image: url('../img/common/logo.png');
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
-        height: 48px;
-        width: 48px;
+        background-size: cover;*/
+        color: #FFFFFF;
+        line-height: 3.0em;
+        font-weight: 700;
+        //height: 48px;
+        //width: 48px;
 
         span { 
-            display: none;
+            //display: none;
         }
     }
 
     a {
         color: white;
         font-weight: 400;
+        line-height: 3.0em;
         text-transform: uppercase;
     }
 
@@ -191,7 +204,7 @@ a.pure-button-primary {
     }
 
     li a:hover, li a:focus {
-        background: transparent;
+        background: $menu-bg-hover;
         color: $nav-blue-text;
     }
 
@@ -210,7 +223,7 @@ a.pure-button-primary {
  */
 
 .splash-container {
-    background-color: #4c5c6e;
+    background-color: $splash-bg;
     background-image: url('../img/common/splash-bg.jpg');
     background-position: right; 
     background-attachment: scroll; 
@@ -239,20 +252,19 @@ a.pure-button-primary {
 /* This is the main heading that appears on the blue section */
 .splash-head {
     color: $text-white;
-    font-size: 24px;
+    font-size: 48px;
     font-weight: 700;
     line-height: 0.7em;
     margin: 0;
     padding: 20px 0;
     position: relative;
-    text-align: left;
     text-transform: uppercase;
 }
 
 .splash-line {
      border-bottom: 4px solid #FFF;
-     text-align: left;
-     width: 200px;
+     width: 80%; 
+     margin: auto;
 }
 
 /* This is the subheading that appears on the blue section */
@@ -306,22 +318,23 @@ a.pure-button-primary {
 }
 
 /* We want to give the content area some padding */
-    .content {
-        padding: 4em 1em;
-    }
+.content {
+    min-height: 100vh;
+    padding: 4em 1em;
+}
 
 /* This is class used for the icons */ 
 .icon { 
     margin: 0 10px 0 0;
     position: relative; 
-    top: 15px;
+    top: 13px;
     width: 36px;
 }
 
 /* This is the class used for the dark-background areas. */
 .ribbon {
-    background: #2d3e50;
-    color: #aaa;
+    background: $splash-bg;
+    color: #fff;
     padding: 6em 0;
 }
 
@@ -370,8 +383,14 @@ a.pure-button-primary {
         height: 50%;
     }
 
+    .splash-line { 
+        width: 200px;
+        margin: 0;
+    }
+
     .splash-head {
-        font-size: 250%;
+        font-size: 60px;
+        text-align: left;
     }
 
 
