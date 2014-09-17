@@ -168,8 +168,9 @@ a.pure-button-primary {
  */
 
 .home-menu {
-    text-align: center;
-    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+    height: 53px;
+    z-index: 5;
+    //text-align: center;
 
     &.pure-menu-open {
         background: $menu-bg;
@@ -191,10 +192,73 @@ a.pure-button-primary {
         }
     }
 
+    .menu-list {
+        background-color: $menu-bg; 
+        font-size: 3.0em;
+        font-weight: 700;
+        height: 100vh;
+        left: 0;
+        position: absolute;
+        top: -100vh;
+        text-align: center;
+        width: 100%;
+        z-index: -1;
+
+        li { 
+            display: block;
+        }
+
+        &.menu-list-open { 
+            top: 53px;
+            transition: all 0.2s ease-out;
+        }
+    }
+
+    .menu-link {
+        position: fixed;
+        top: 0;
+        right: 20px; /* "#menu width" */
+        background: $menu-bg;
+        cursor: pointer;
+        font-size: 11px; /* change this value to increase/decrease button size */
+        z-index: 10;
+        width: 4.7em;
+        height: 4.7em;
+        padding: 1em;
+        
+        &:hover { 
+            background-color: $menu-bg-hover;
+        }
+
+        span, span:before, span:after {
+            background-color: #fff;
+            width: 100%;
+            height: 0.2em;
+        }
+
+        span {
+            position: relative;
+            display: block;
+            margin-top: 1.2em;
+
+            &::before, &::after {
+                position: absolute;
+                top: -.55em;
+                content: " ";
+            }
+
+            &::after {
+                top: .55em;
+            }
+        }
+    }
+
+        
+
     a {
         color: white;
-        font-weight: 400;
-        line-height: 3.0em;
+        font-weight: 700;
+        line-height: 2.0em;
         text-transform: uppercase;
     }
 
@@ -252,7 +316,7 @@ a.pure-button-primary {
 /* This is the main heading that appears on the blue section */
 .splash-head {
     color: $text-white;
-    font-size: 48px;
+    font-size: 42px;
     font-weight: 700;
     line-height: 0.7em;
     margin: 0;
@@ -366,10 +430,45 @@ a.pure-button-primary {
     menu items to the right. */
     .home-menu {
         text-align: left;
-    }
-        .home-menu ul {
-            float: right;
+
+        .menu-list {
+            background-color: transparent; 
+            display: block !important;
+            font-size: inherit;
+            height: auto;
+            left: 0;
+            position: relative;
+            text-align: center;
+            top: 0;
+            transition: all 0.5s ease-out;            
+            width: auto;
+
+            li { 
+                display: inline-block;
+            }
+
+            &.menu-list-open { 
+                top: 0;
+            }
         }
+
+        .menu-link {
+            display: none !important;
+        }
+
+        a { 
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 3.0em;
+            height: 53px;
+        }
+    }
+    
+    .home-menu ul {
+        float: right;
+    }
+
+    
 
     /* We increase the height of the splash-container */
 /*    .splash-container {
