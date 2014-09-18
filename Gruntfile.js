@@ -16,6 +16,21 @@ module.exports = function(grunt) {
           }
         },
 
+        concat: {
+            base: {
+                src: [
+                    'bower_components/pure/pure.css'
+                ],
+                dest: 'src/scss/_base.scss'
+            },
+            layout: {
+                src: [
+                    'bower_components/pure/grids-responsive.css'
+                ],
+                dest: 'src/scss/_layout.scss'
+            }
+        },
+
         sass: {
             dist: {
                 options: {
@@ -71,6 +86,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['jshint', 'uglify', 'sass', 'watch']);
+    grunt.registerTask('default', ['jshint', 'uglify', 'concat', 'sass', 'watch']);
 
 };
