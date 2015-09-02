@@ -1,0 +1,22 @@
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+/* line 7, ../preprocess/sass/ie.scss */
+.list-inline > li {
+  display: inline; }
+
+/* line 11, ../preprocess/sass/ie.scss */
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+  height: auto;
+  padding: 5px;
+  width: 80px; }
+
+/* line 17, ../preprocess/sass/ie.scss */
+select {
+  margin-bottom: 0px; }
+
+/* line 21, ../preprocess/sass/ie.scss */
+table {
+  width: auto; }

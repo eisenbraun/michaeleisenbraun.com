@@ -16,6 +16,21 @@ module.exports = function(grunt) {
           }
         },
 
+        concat: {
+            base: {
+                src: [
+                    'bower_components/pure/pure.css'
+                ],
+                dest: 'src/scss/_base.scss'
+            },
+            layout: {
+                src: [
+                    'bower_components/pure/grids-responsive.css'
+                ],
+                dest: 'src/scss/_layout.scss'
+            }
+        },
+
         sass: {
             dist: {
                 options: {
@@ -28,25 +43,27 @@ module.exports = function(grunt) {
             } 
         },
 
-        concat: {
+        /*concat: {
             dist: {
                 src: [
-                    'bower_components/angular/angular.js',
-                    'bower_components/angular-scroll/angular-scroll.js',
                     'src/js/app.js',
-                    'src/js/controllers.js',
-                    'src/js/directives.js',
-                    'src/js/filters.js',
-                    'src/js/services.js'
                 ],
                 dest: 'js/main.js'
             },
+        },*/
+
+        uglify: {
+            dist: { 
+                files: { 
+                    'js/main.js': 'src/js/app.js'
+                }
+            }
         },
 
         watch: {
             scripts: {
                 files: ['src/js/*.js'],
-                tasks: ['concat'],
+                tasks: ['jshint','uglify'],
                 options: {
                     spawn: false,
                 },
@@ -64,11 +81,12 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['jshint', 'concat', 'sass', 'watch']);
+    grunt.registerTask('default', ['jshint', 'uglify', 'concat', 'sass', 'watch']);
 
 };

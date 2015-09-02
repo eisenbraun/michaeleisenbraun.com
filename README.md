@@ -1,26 +1,6 @@
-## Angular Project Boilerplate
-#### by Michael Eisenbraun
+## Michael Eisenbraun
+http://www.michaeleisenbruan.com
 
-## Installation
-In the terminal navigate to the unzipped directory, and run the following terminals command commands: 
-
-Install Node Dependencies
-
-```
-$ npm install
-```
-
-Install Bower Dependencies
-
-```
-$ bower install
-```
-
-Run Grunt Tasks
-
-```
-$ grunt
-```
 
 
 

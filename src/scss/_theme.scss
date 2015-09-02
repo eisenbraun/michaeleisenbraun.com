@@ -39,11 +39,17 @@ $nav-gray-text: #FFFFFF;
 
 $text-blue: #6FBEF3; 
 $text-gray: #666666;
+$text-white: #FFFFFF;
 
+$menu-bg: #2d3e50; 
+$menu-bg-hover: darken($menu-bg, 10%);
+
+$splash-bg: #4c5c6e;
+$ribbon-bg: #2d3e50;
 /** FONTS */
 $font-family: 'Roboto', sans-serif;
 
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,700,300);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
 
 
 /** APP SPECIFIC CSS */
@@ -57,7 +63,8 @@ $font-family: 'Roboto', sans-serif;
  * -- BASE STYLES --
  * Most of these are inherited from Base, but I want to change a few.
  */
-body, a {
+body {
+    color: #333;
     font-family: $font-family;
 }
 
@@ -98,8 +105,9 @@ label {
     color: #34495e;
 }
 
-.pure-g { 
-    //letter-spacing: -0.3em;
+h4 {
+    font-family: $font-family;
+    font-weight: 300;
 }
 
 .pure-img-responsive {
@@ -126,17 +134,13 @@ a.pure-button-primary {
 }
 
 .l-box-lrg {
-    color: #333;
+    //color: #333;
     padding: 2em;
     //border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .is-center {
     text-align: center;
-}
-
-.pure-g { 
-    margin: 50px 0;
 }
 
 /*
@@ -164,38 +168,107 @@ a.pure-button-primary {
  */
 
 .home-menu {
-    padding: 0.5em;
-    text-align: center;
-    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+    height: 53px;
+    z-index: 5;
+    //text-align: center;
 
     &.pure-menu-open {
-        background: #2d3e50;
+        background: $menu-bg;
     }
 
     .pure-menu-heading {
-        background-image: url('../img/common/logo.png');
+        /*background-image: url('../img/common/logo.png');
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
-        height: 54px;
-        width: 54px;
+        background-size: cover;*/
+        color: #FFFFFF;
+        line-height: 3.0em;
+        font-weight: 700;
+        //height: 48px;
+        //width: 48px;
 
         span { 
-            display: none;
+            //display: none;
         }
     }
 
+    .menu-list {
+        background-color: $menu-bg; 
+        font-size: 3.0em;
+        font-weight: 700;
+        height: 100vh;
+        left: 0;
+        position: absolute;
+        top: -100vh;
+        text-align: center;
+        width: 100%;
+        z-index: -1;
+
+        li { 
+            display: block;
+        }
+
+        &.menu-list-open { 
+            top: 53px;
+            transition: all 0.2s ease-out;
+        }
+    }
+
+    .menu-link {
+        position: fixed;
+        top: 0;
+        right: 20px; /* "#menu width" */
+        background: $menu-bg;
+        cursor: pointer;
+        font-size: 11px; /* change this value to increase/decrease button size */
+        z-index: 10;
+        width: 4.7em;
+        height: 4.7em;
+        padding: 1em;
+        
+        &:hover { 
+            background-color: $menu-bg-hover;
+        }
+
+        span, span:before, span:after {
+            background-color: #fff;
+            width: 100%;
+            height: 0.2em;
+        }
+
+        span {
+            position: relative;
+            display: block;
+            margin-top: 1.2em;
+
+            &::before, &::after {
+                position: absolute;
+                top: -.55em;
+                content: " ";
+            }
+
+            &::after {
+                top: .55em;
+            }
+        }
+    }
+
+        
+
     a {
-        color: $text-blue;
+        color: white;
+        font-weight: 700;
+        line-height: 2.0em;
+        text-transform: uppercase;
     }
 
     .pure-menu-selected a {
-        color: $nav-blue-text;
+        color: $text-white;
 
     }
 
     li a:hover, li a:focus {
-        background: transparent;
+        background: $menu-bg-hover;
         color: $nav-blue-text;
     }
 
@@ -214,38 +287,49 @@ a.pure-button-primary {
  */
 
 .splash-container {
-    background: $blue-bg;
-    color: $blue-text;
+    background-color: $splash-bg;
+    background-image: url('../img/common/splash-bg.jpg');
+    background-position: center; 
+    background-attachment: scroll; 
+    background-size: cover;
+    color: $text-white;
     height: 88%;
     left: 0;
     overflow: hidden;
     position: fixed !important;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: -2;
 }
 
 .splash {
     /* absolute center .splash within .splash-container */
-    color: $red-text;
+    color: $text-white;
     width: 80%;
-    height: 50%;
+    height: 65%;
     margin: auto;
     position: absolute;
-    top: 100px; left: 0; bottom: 0; right: 0;
+    top: 50px; left: 0; bottom: 0; right: 0;
     text-align: center;
 }
 
 /* This is the main heading that appears on the blue section */
 .splash-head {
-    color: $red-text;
-    font-size: 24px;
-    font-weight: 300;
-    line-height: 1.3em;
+    color: $text-white;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 0.7em;
     margin: 0;
-    padding: 0;
+    padding: 20px 0;
     position: relative;
-    text-align: center;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.splash-line {
+    border-bottom: 4px solid #FFF;
+    width: 200px;
+    margin: 0;
 }
 
 /* This is the subheading that appears on the blue section */
@@ -254,6 +338,7 @@ a.pure-button-primary {
     font-size: 18px;
     font-weight: 300;
     letter-spacing: 0.05em;
+    margin: 18px auto;
     opacity: 0.8;
     text-transform: uppercase;
 }
@@ -264,12 +349,15 @@ a.pure-button-primary {
  */
 .content-wrapper {
     /* These styles are required for the "scroll-over" effect */
+    background: white;
+    //-webkit-box-shadow: 0px -3px 5px 0px rgba(50, 50, 50, 0.4);
+    //-moz-box-shadow:    0px -3px 5px 0px rgba(50, 50, 50, 0.4);
+    //box-shadow:         0px -3px 5px 0px rgba(50, 50, 50, 0.4);
+    min-height: 12%;
     position: absolute;
     top: 87%;
     width: 100%;
-    min-height: 12%;
     z-index: 2;
-    background: white;
 
 }
 
@@ -294,26 +382,38 @@ a.pure-button-primary {
     margin: 0;
 }
 
+/* We want to give the content area some padding */
+.content {
+    //min-height: 100vh;
+    padding: 4em 1em;
+}
+
 /* This is class used for the icons */ 
 .icon { 
     margin: 0 10px 0 0;
     position: relative; 
-    top: 15px;
+    top: 13px;
     width: 36px;
 }
 
 /* This is the class used for the dark-background areas. */
 .ribbon {
-    background: #2d3e50;
-    color: #aaa;
+    background: $splash-bg;
+    color: #fff;
+    padding: 6em 0;
 }
 
 /* This is the class used for the footer */
 .footer {
-    background: #111;
+    background: $menu-bg-hover;
     color: #eee;
     font-family: $font-family;
-    font-weight: 300;
+    font-weight: 400;
+
+    a {
+        color: white;
+        font-weight: 700;
+    }
 }
 
 /*
@@ -329,17 +429,52 @@ a.pure-button-primary {
     }
     /* We want to give the content area some more padding */
     .content {
-        padding: 1em;
+        padding: 4em 1em;
     }
 
     /* We can align the menu header to the left, but float the
     menu items to the right. */
     .home-menu {
         text-align: left;
-    }
-        .home-menu ul {
-            float: right;
+
+        .menu-list {
+            background-color: transparent; 
+            display: block !important;
+            font-size: inherit;
+            height: auto;
+            left: 0;
+            position: relative;
+            text-align: center;
+            top: 0;
+            transition: all 0.5s ease-out;            
+            width: auto;
+
+            li { 
+                display: inline-block;
+            }
+
+            &.menu-list-open { 
+                top: 0;
+            }
         }
+
+        .menu-link {
+            display: none !important;
+        }
+
+        a { 
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 3.0em;
+            height: 53px;
+        }
+    }
+    
+    .home-menu ul {
+        float: right;
+    }
+
+    
 
     /* We increase the height of the splash-container */
 /*    .splash-container {
@@ -349,12 +484,13 @@ a.pure-button-primary {
     /* We decrease the width of the .splash, since we have more width
     to work with */
     .splash {
-        width: 50%;
+        width: 80%;
         height: 50%;
     }
 
     .splash-head {
-        font-size: 250%;
+        font-size: 60px;
+        text-align: left;
     }
 
 
@@ -373,6 +509,10 @@ a.pure-button-primary {
 @media (min-width: 78em) {
     /* We increase the header font size even more */
     .splash-head {
-        font-size: 300%;
+        font-size: 400%;
+    }
+
+    .content { 
+        padding: 8em 0;
     }
 }

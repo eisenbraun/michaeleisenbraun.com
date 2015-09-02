@@ -17,9 +17,6 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.2.23",
-    "pure": "~0.5.0",
-    "angular-scroll": "~0.6.1",
-    "sass-pure": "*"
+    "pure": "~0.5.0"
   }
 }
