@@ -1,0 +1,117 @@
+$font_family: arial; 
+$font_size: 0.9em;
+$line_height: 1.4em;
+$section_header_color: #fff !important; 
+$section_header_bg_color: #333 !important;
+$ul_header_color: #fff !important; 
+$ul_header_bg_color: #25649F !important;
+$code_font_family: "source-code-pro", Consolas, monospace !important;
+$code_color: #333;
+$code_bg_color_alt1: #eee; 
+$code_bg_color_alt2: #fff;    
+
+
+
+#api {
+	body { 
+ 	font-family: $font_family;
+    font-size: $font_size;
+    line-height: $line_height; 
+	}
+		  
+	p { 
+		margin: 5px 0;
+		padding: 0;
+	}
+	
+	code {
+		font-family: $code_font_family;
+		word-spacing: 0;
+		word-wrap: break-word;
+	}
+
+	.section { 
+		border: 1px solid #ccc !important;
+		border-radius: 5px !important;
+		margin: 10px !important;
+	
+		h3 { 
+			 background: $section_header_bg_color;
+			 color: $section_header_color;
+			 padding: 10px !important;
+			 margin:0;
+			 border-radius: 5px 5px 0 0 !important;
+		
+		}
+		
+		h4 { 
+			margin: 0px;
+		}
+		
+		.log { 
+			padding: 10px 20px;
+		}
+		
+		.content { 
+			padding: 10px 20px;
+		
+			ul { 
+				list-style-type: none; 	
+				margin: 15px 0;
+				padding: 0;
+				 
+				li { 
+					background-color: $code_bg_color_alt1;	
+					margin:0; 
+					padding:0;
+					color: $code_color;
+					
+					h3 { 
+						background-color: $ul_header_bg_color;
+						color: $ul_header_color;
+						border-radius: 0 !important;
+						font-weight: normal;
+					}
+					
+				}
+				
+				.syntaxhighlighter {
+					background-color: #fff !important; 
+					margin: 15px 0 !important;
+					
+					.line.alt1, .line.alt2 { 
+						background-color: #fff !important; 
+					}
+				}
+	
+			}
+	
+			h2 {
+				font-size: 20px;
+				line-height: 20px;
+				color: #666;
+			}
+		
+		}
+	
+		.syntaxhighlighter {
+			background-color: #eee !important;
+			padding: 10px 0px;
+			margin: 10px 0 20px 0 !important;
+			border-radius: 5px;
+	
+			.line.alt1, .line.alt2 { 
+				background-color: #eee !important; 
+			}
+	
+			.gutter {
+				display:none;
+			}
+			
+			.toolbar { 
+			  display:none;
+			}
+		}
+	
+	}
+}

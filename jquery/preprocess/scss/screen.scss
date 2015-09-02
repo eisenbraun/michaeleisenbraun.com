@@ -1,0 +1,323 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+//reset
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font:inherit;font-size:100%;vertical-align:baseline}html{line-height:1}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}q,blockquote{quotes:none}q:before,q:after,blockquote:before,blockquote:after{content:"";content:none}a img{border:none}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{display:block}
+
+@import "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"; 
+
+/*Variables*/ 
+
+/*colors*/ 
+$link-hover: #4697BB;
+
+$btn-bg: #017AD6; 
+$btn-hover: darken($btn-bg, 10%);
+$btn-border: darken($btn-bg, 30%);
+$btn-color: #FFFFFF;
+
+$sticker-bg: #14CC58;
+$sticker-text: #FFFFFF; 
+//$green-callout: darken($green-bg, 30%);
+
+/*Typography*/ 
+body {
+	margin: 0px; 
+	padding: 0px;
+	background: #F2F2F2;
+	font-family: 'Source Sans Pro', sans-serif;	
+	color: #333;
+}
+
+h1 {font-size: 4.0em; line-height: 1.1em; margin: 0px; padding: 40px 0 0 0; font-weight: normal; text-align: center;}
+h2 {font-size: 1.4em; line-height: 1.3em; color:#666; font-weight: 300; text-align: center; padding: 0 0 20px 0;}
+h3 {font-size: 1.2em; line-height: 1.1em; font-weight: 600; text-align: center;}
+p {font-size: 1.2em; line-height: 1.5em; font-weight: 300; text-align: center; width: 500px; margin: 0 auto;}
+a {text-decoration: none;}
+/*utilities*/ 
+.pull-left {
+	float: left; 
+}
+
+.pull-right {
+	float: right; 
+}
+
+footer { 
+	clear: both; 
+}
+
+.border { 
+	border: 1px solid #ccc;
+}
+
+.sticker { 
+	position: absolute; 
+	line-height: 24px;
+	padding: 5px;
+	border-radius: 30px; 
+	box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+	background: $sticker-bg;
+	color: $sticker-text;
+	font-size: 12px;
+	text-align: center;
+}
+
+strong {
+	font-weight: bold;
+}
+
+.banner { 
+	position: relative; 
+	top: 100px;
+	left: -40%;
+	width: 100%;
+	padding: 10px;
+	box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+	background: $sticker-bg;
+	color: $sticker-text;
+	z-index: 100;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.red { 
+	color: #BD1A00;
+	font-weight: 600;
+}
+
+.swatch { 
+	display: inline-block;
+	width: 40px; 
+	height: 40px; 
+	border: 1px solid #ccc; 
+	box-shadow: 0px 0px 4px rgba(0,0,0,0.3);	
+	margin-right: 15px;
+}
+
+.small { 
+	font-size: 1.0em; 
+	line-height: 1.4em; 
+	margin-bottom: 1.0em;
+}
+
+
+/*Layout*/
+
+.wrapper { 
+	width: 90%; 
+	max-width: 1100px; 
+	margin: 0px auto; 
+	box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+}
+
+nav { 
+	background-image: url(../images/logo-v3-black.png); 
+	background-position: 50px center; 
+	background-repeat: no-repeat;
+	z-index: 100;
+	background-color: rgba(255,255,255,1);
+	height: 75px;
+	padding: 0;
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	text-align: right;
+	
+	ul { 
+		list-style-type: none;
+		transition: right 0.5s;
+		margin-right: 50px;
+		
+		li { 
+	        display: inline-block;
+	        line-height: 75px;
+	        font-size: 12px; 
+	        
+	        a { 
+	        	padding: 0 15px;
+	        	text-decoration: none; 
+	        	color: #666;
+	        	font-size: 1.3em;
+	        	font-weight: 300;
+	        
+	        	
+		        &:hover, &.active { 
+		      	  color:  $link-hover;
+			  	}
+			  	
+			  	&.disabled {
+				  	color: #ccc;
+				  	cursor: text;
+			  	}
+
+	        }
+	    }
+	}
+}
+
+
+
+
+header { 
+	background: #FFFFFF;
+	padding: 50px;
+}
+
+
+section { 
+	padding: 20px; 
+	margin: 0px auto; 
+	position: relative;	
+	transition: top 1s;
+	border-top: 1px solid #ccc;
+	clear: both; 
+	background: #F9F9F9;
+	overflow: hidden;
+	
+	&:nth-child(even) { 
+		background: #FFFFFF;
+		//box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+	}	
+	
+	article {
+		padding: 0;
+		margin: 20px auto;
+		
+		&.code { 
+			background-color: #333; 
+			color: #fff;
+		}
+		
+		
+		
+		a {
+			color: $link-hover;
+			font-weight: normal;
+		}
+		
+		form { 
+			
+			border: 1px solid #aaa; 
+			border-radius: 10px; 
+			padding: 20px; 
+			width: 400px; 
+			margin: 0 auto;
+			background: #eee;
+		
+		
+			label {
+				display:block; 
+				padding: 10px 0 5px 0;
+				font-weight: 300;
+			}
+			
+			input[type="text"], input[type="email"], input[type="tel"], input[type="number"]  { 
+				display: block; 
+				border-width: 1px; 
+				border-style: solid; 
+				border-color: #dedede; 
+				padding: 10px;
+				width: 94%;
+			}
+			
+			input[type="submit"] {
+				background: $btn-bg;
+				color: $btn-color;
+				padding: 10px; 
+				border-radius: 5px; 
+				font-size: 1.0em;
+				font-weight: 300;
+				border: 0px;
+				margin: 10px 0 0 0;
+			}
+			
+			&.error-messaging {
+				 
+				label, input, div {
+					clear: both;
+				}
+
+				.ui-state-invalid {
+							
+					input[type="text"], input[type="email"], input[type="tel"], input[type="number"]  { 
+						width: 50%;
+						float:left;
+						
+					}
+				}
+			}
+			
+			.ui-error-message {
+				width:38%;
+				font-size: 0.8em;
+				display: inline-block; 
+				float: right;
+				line-height: 1.2em; 
+			}
+		}
+	}
+		
+	.btn { 
+		display: inline-block;
+		text-decoration: none;
+		padding: 10px; 
+		border-radius: 5px; 
+		font-size: 1.2em;
+		font-weight: 300;
+		cursor: pointer;
+		margin: 30px 10px 15px 0;
+		text-align: center;
+		background: $btn-bg;
+		color: $btn-color;
+		
+		&:hover { 
+			background: $btn-hover;
+		}
+	}
+	
+	
+	//plugins 
+	&.disabled { 
+		article { 
+			opacity: 0.3;
+		}
+	}
+	
+	&.columns { 
+		background-image: url(../images/columns-03.png); 
+		background-position: -40px top; 
+		background-repeat: no-repeat;
+	}
+	
+	
+
+}
+
+
+
+footer {   
+	background-color:#282828;
+	color: #fff;
+	clear:both;
+	
+	a {
+		color: $link-hover;
+		font-weight: normal;
+	}
+	
+	article { 
+		float: left;
+		width: 40%;
+		padding: 30px 50px;
+	}
+	
+	.copyright {
+		padding: 30px 50px; 
+		font-size: 0.8em; 
+		clear: both;
+		background: #222222;
+	}
+	
+}
