@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en"> 	
+	<head>
+		<meta charset="utf-8">
+		<title>Columns 2.0</title>
+		
+		<meta name="description" content="Columns is jQuery Plugins for creating sortable, searchable, paginating HTML tables from JSON data.">
+  		<meta name="author" content="Michael Eisenbraun">
+  		<meta name="viewport" content="initial-scale=1.0">
+  		
+  		<!-- Include *at least* the core style and default theme -->
+  		<link href="../syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+  		<link href="../syntaxhighlighter/styles/shThemeRDark.css" rel="stylesheet" type="text/css" />
+  		
+  		<link href="../css/screen.css" rel="stylesheet" media="screen">
+  		<link href="../css/docs.css" rel="stylesheet" media="screen">
+  		<link rel="stylesheet" href="css/classic.css">	
+  		
+  		
+  		 <!-- Include required JS files -->
+	    <script type="text/javascript" src="../syntaxhighlighter/scripts/shCore.js"></script>
+	 
+		<!--
+		    At least one brush, here we choose JS. You need to include a brush for every 
+		    language you want to highlight
+		-->
+		<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushXml.js"></script>
+  		
+	</head>
+	<body>
+		<div class="wrapper"> 
+			<nav>
+	    		<ul>
+	    			<li> 
+	    				<a href="/">Home</a>
+	    			</li>
+	    			<li>
+	    				<a href="/guardian">Guardian</a>
+	    			</li>
+	    			<li>
+	    				<a href="/columns" class="active">Columns</a>
+	    			</li>
+	    			<li>
+	    				<a href="/nutip">NüTip</a>
+	    			</li>
+	    		</ul>
+	    	</nav>
+
+	    	<header>	
+	    		<h1>Columns</h1>
+	    		<h2>by Michael Eisenbraun</h2>
+	    		
+	    		<p>Columns is an easy way of creating JSON data into HTML tables that are sortable, searchable, and paginating. All you need is to provide the data, and Columns will do the rest.</p>
+	    		
+	    			    		
+	    		<footer></footer>
+	    	</header>
+		
+		
+			<section>
+				<article> 
+					<h2>Example 1: Setting data inline</h2>
+					<div id="example1"></div>
+				</article>
+				<pre class="brush: js"> 
+					$('#example1').columns({
+						data: [
+							{'Emp. Number': 00001, 'First Name':'John', 'Last Name':'Smith' },
+							{'Emp. Number': 00002, 'First Name':'Jane', 'Last Name':'Doe' },
+							{'Emp. Number': 00003, 'First Name':'Ted', 'Last Name':'Johnson' },
+							{'Emp. Number': 00004, 'First Name':'Betty', 'Last Name':'Smith' },
+							{'Emp. Number': 00005, 'First Name':'Susan', 'Last Name':'Wilson' },
+							{'Emp. Number': 00006, 'First Name':'John', 'Last Name':'Doe' },
+							{'Emp. Number': 00007, 'First Name':'Bill', 'Last Name':'Watson' },
+							{'Emp. Number': 00008, 'First Name':'Walter', 'Last Name':'Wright' }
+						]
+					});
+				</pre>
+			</section>
+			
+			<section>
+				<article> 
+					<h2>Example 2: Setting data from external source</h2>
+					<div id="example2"></div>
+				</article>
+				<pre class="brush: js"> 
+					$.ajax({
+						url:'json.php',
+						dataType: 'json', 
+						success: function(json) { 
+							example2 = $('#example2').columns({
+								data:json, 
+							}); 
+						}
+					}); 
+				</pre>
+			</section>
+			
+			<section>
+				<article> 
+					<h2>Example 3: Using a custom schema</h2>
+					<div id="example3"></div>
+				</article>
+				<pre class="brush: js"> 
+					$.ajax({
+						url:'custom.json',
+						dataType: 'json', 
+						success: function(json) { 
+							example3 = $('#example3').columns({
+								data:json,
+								schema: [
+									{"header":"ID", "key":"id", "template":"000{{id}}"},
+									{"header":"Name", "key":"name"},
+									{"header":"Email", "key":"email", "template":'<a href="mailto:{{email}}">{{email}}</a>'}
+									{"header":"Gender", "key":"gender"}
+								]
+		 
+							}); 
+						}
+					}); 
+				</pre>
+			</section>
+			
+			<section>
+				<article> 
+					<h2>Example 4: Using a conditional statement</h2>
+					<div id="example4"></div>
+				</article>
+				<pre class="brush: js"> 
+					$.ajax({
+						url:'custom.json',
+						dataType: 'json', 
+						success: function(json) { 
+							example4 = $('#example4').columns({
+								data:json,
+								schema: [
+									{"header":"ID", "key":"id", "template":"000{{id}}"},
+									{"header":"Name", "key":"name"},
+									{"header":"Email", "key":"email", "template":'<a href="mailto:{{email}}">{{email}}</a>'},
+									{"header":"Gender", "key":"gender", "condition":function(val) {return (val=="male");}}
+								]
+		 
+							}); 
+						}
+					}); 
+				</pre>
+			</section>
+			
+		<footer> 
+    		<article> 
+    			<p>Need more? Read the full <a href="//eisenbraun.github.io/columns/">documentation</a></p>
+    		</article>
+    		<article>
+    			<p>Send Inquires to <a href="mailto:me@michaeleisenbraun.com">me@michaeleisenbraun.com</a></p>
+    		</article>
+    		
+    	
+			<div class="copyright"><sup>&copy;</sup>2014 Michael Eisenbraun</div>
+    	</footer>
+
+		
+		<script src="../js/main.min.js"></script>
+		<script src="js/jquery.columns-2.0.min.js"></script>
+		
+		<script>
+			SyntaxHighlighter.defaults['gutter'] = true;
+			SyntaxHighlighter.defaults['smart-tabs'] = true;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all()
+			
+			//example 1 
+			$('#example1').columns({
+				data: [
+					{'Emp. Number': 00001, 'First Name':'John', 'Last Name':'Smith' },
+					{'Emp. Number': 00002, 'First Name':'Jane', 'Last Name':'Doe' },
+					{'Emp. Number': 00003, 'First Name':'Ted', 'Last Name':'Johnson' },
+					{'Emp. Number': 00004, 'First Name':'Betty', 'Last Name':'Smith' },
+					{'Emp. Number': 00005, 'First Name':'Susan', 'Last Name':'Wilson' },
+					{'Emp. Number': 00006, 'First Name':'John', 'Last Name':'Doe' },
+					{'Emp. Number': 00007, 'First Name':'Bill', 'Last Name':'Watson' },
+					{'Emp. Number': 00008, 'First Name':'Walter', 'Last Name':'Wright' }
+				]
+			});
+			
+			//example 2 
+			$.ajax({
+				url:'json.php',
+				dataType: 'json', 
+				success: function(json) { 
+					example2 = $('#example2').columns({
+						data:json
+					}); 
+				}
+			}); 
+			
+			//example 3
+			$.ajax({
+				url:'custom.json',
+				dataType: 'json', 
+				success: function(json) { 
+					example3 = $('#example3').columns({
+						data:json,
+						schema: [
+							{"header":"ID", "key":"id", "template":"000{{id}}"},
+							{"header":"Name", "key":"name"},
+							{"header":"Email", "key":"email", "template":'<a href="mailto:{{email}}">{{email}}</a>'},
+							{"header":"Gender", "key":"gender"}
+						]
+ 
+					}); 
+				}
+			}); 
+			
+			//example 4
+			$.ajax({
+				url:'custom.json',
+				dataType: 'json', 
+				success: function(json) { 
+					example4 = $('#example4').columns({
+						data:json,
+						schema: [
+							{"header":"ID", "key":"id", "template":"000{{id}}"},
+							{"header":"Name", "key":"name"},
+							{"header":"Email", "key":"email", "template":'<a href="mailto:{{email}}">{{email}}</a>'},
+							{"header":"Gender", "key":"gender", "condition":function(val) {return (val=="male");}}
+						]
+ 
+					}); 
+				}
+			}); 
+
+			
+			/*
+			page:1,
+						size:5, 
+						schema: [
+							{"header":"Numbers", "key":"number", "condition":function(val) {return (val);}},
+							{"header":"Words", "key":"word", "template":"This is the number <strong>{{word}}</strong>.", "condition":function(val) {return (val);}},
+							{"header":"Character", "key":"char"}
+						]
+			*/
+		</script> 		
+	</body>
+</html>

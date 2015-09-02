@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en" id="api"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<title>Columns 2.0 Documentation</title>
+		
+		<meta name="description" content="Columns 1.0 Documentation">
+	  	<meta name="author" content="Michael Eisenbraun">
+	  	<!-- Include *at least* the core style and default theme -->
+		<link href="../../syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+		<link href="../../syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+	
+	    <link href="../../css/docs.css" rel="stylesheet">
+	
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	    
+	    <!-- Include required JS files -->
+	    <script type="text/javascript" src="../../syntaxhighlighter/scripts/shCore.js"></script>
+	 
+		<!--
+		    At least one brush, here we choose JS. You need to include a brush for every 
+		    language you want to highlight
+		-->
+		<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushJScript.js"></script>
+		<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushXml.js"></script>
+
+		    
+	    
+  	</head> 	
+  	<body>
+  		<p><em>Copyright (c) 2014, Michael Eisenbraun<br>
+Created: 2014-01-29<br>
+Updated: 2014-05-01 <small><a href="#log">change log</a></small></em></p>
+  		<h1>Columns 2.0</h1>
+  		
+  		<p>The Columns is a jQuery plugin for taking JSON data and creating a table that is sortable, searchable, and paginated.</p>
+  		  		
+  		<div class="section">
+  			<h3>Installation</h3> 
+  			<div class="content"> 
+  				<p><strong>JavaScript</strong></p>
+  				<p>Include the jQuery Library 1.7 or later and the Columns Plugin File:</p> 
+  				<pre class='brush: xml'>
+  					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  					<script src="js/jquery.columns-1.0.min.js"></script></pre>
+  				<p>Intialize Columns:</p>
+		          <pre class="brush: js">
+		          $(document).ready(function() {
+		          	  var json = [{"col1":"row1", "col2":"row1", "col3":"row1"}, {"col1":"row2", "col2":"row2", "col3":"row2"}]; 
+		              $('#columns').columns({data:json});
+		          });
+		          </pre>
+
+  				<p><strong>CSS</strong> (optional)</p> 
+  				<pre class='brush: xml'><link rel="stylesheet" href="css/classic.css"></pre>
+
+  				<p><strong>HTML</strong></p>
+
+				  <p>Because Columns create all the necessary HTML dynamically, the only HTML needed is a empty HTML element, such as a <code>&lt;div&gt;</code> tag, with the corresponding id as using in the initialization.</p> 
+				
+				  <pre class="brush:xml"> 
+					<div id="columns"></div></pre>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Options</h3>
+        <div class="content">
+          <p>The changing how Columns builds the table is created can be manipulated by passing a object as a parameter during invocation.</p>
+
+          <p>There is only one required object attribute, the <code>data</code> attribute, which must be an array of objects (see example above). All other attributes are optional.</p>  
+          
+          <ul> 
+          	<li>
+              <h3>data</h3>
+              <div class="content">
+                <p><strong>Object</strong></p>
+                <p><em>REQUIRED.</em> This is the data that columns uses to build the table.</p>
+                <pre class="brush: js">
+                  var json = [{"col1":"row1", "col2":"row1", "col3":"row1"}, {"col1":"row2", "col2":"row2", "col3":"row2"}];
+                  $('#columns').columns({ 
+                  	data: json
+                  });</pre>
+              </div>
+            </li>
+            <li>
+              <h3>evenRowClass</h3>
+              <div class="content">
+                <p><strong>String</strong></p>
+                <p>This class is added to all the even rows within the tbody.</p>
+                 <p>Default: <code>ui-table-rows-even</code></p>
+                <pre class="brush: js">
+                  var json = [{"col1":"row1", "col2":"row1", "col3":"row1"}, {"col1":"row2", "col2":"row2", "col3":"row2"}];
+                  $('#columns').columns({ 
+                    data: json, 
+                    evenRowClass: 'even-rows'
+                  });</pre>
+              </div>
+            </li>
+            <li>
+              <h3>oddRowClass</h3>
+              <div class="content">
+                <p><strong>String</strong></p>
+                <p>This class is added to all the odd rows within the tbody.</p>
+                 <p>Default: <code>ui-table-rows-even</code></p>
+                <pre class="brush: js">
+                  var json = [{"col1":"row1", "col2":"row1", "col3":"row1"}, {"col1":"row2", "col2":"row2", "col3":"row2"}];
+                  $('#columns').columns({ 
+                    data: json, 
+                    evenRowClass: 'odd-rows'
+                  });</pre>
+              </div>
+            </li>
+            <li>
+              <h3>liveSearch</h3>
+              <div class="content">
+                <p><strong>Boolean</strong></p>
+                <p>If true, results will be filter on keyup. If false, search will not initiate until the "enter" is pressed.</p>
+                <p>Default: <code>true</code></p>
+                <pre class="brush: js">
+                  var json = [{"col1":"row1", "col2":"row1", "col3":"row1"}, {"col1":"row2", "col2":"row2", "col3":"row2"}];
+                  $('#paginate').paginate({ 
+                    data: json,
+                    liveSearch: false
+                  });</pre>
+              </div>
+            </li> 
+            <li>
+              <h3>page</h3>
+              <div class="content">
+                <p><strong>Number</strong></p>
+                <p>The page to be displayed</p>
+                <p>Default: <code>1</code></p>
+              </div>
+            </li> 
+            <li>
+              <h3>plugins</h3>
+              <div class="content">
+                <p><strong>Array</strong></p>
+                <p>Columns will attempt to call the list of plugins. See Plugins for more information.</p>
+                <p>Default: <code>null</code></p>
+              </div>
+            </li>   
+            <li>
+              <h3>query</h3>
+              <div class="content">
+                <p><strong>String</strong></p>
+                <p>If set, will filter data to only to those rows with values that match <code>query</code></p>
+                <p>Default: <code>null</code></p>
+                <pre class="brush: js">
+                  var json = [{"col1":"row1", "col2":"row1", "col3":"row1"}, {"col1":"row2", "col2":"row2", "col3":"row2"}];
+                  $('#columns').columns({ 
+                  	data: json,
+                    query:'row2'
+                  });</pre>
+              </div>
+            </li>  
+            <li>
+              <h3>reverse</h3>
+              <div class="content">
+                <p><strong>Boolean</strong></p>
+                <p>If true, sort data in reverse order; sortBy must be set.</p>
+                <p>Default: <code>false</code></p>
+                <pre class="brush: js">
+                  var json = [{"col1":"row1", "col2":"row1", "col3":"row1"}, {"col1":"row2", "col2":"row2", "col3":"row2"}];
+                  $('#columns').columns({ 
+                  	data: json,
+                    sortBy: 'col2',
+                    reverse: true
+                  });</pre>
+              </div>
+            </li> 
+            <li>
+              <h3>schema</h3>
+              <div class="content">
+                <p><strong>Array of Objects</strong></p>
+                <p>If set, formats the table to the schema's design.</p>
+                <p>Each schema object requires two attributes: <code>header</code> (the title of column) and <code>key</code> (the corresponding data attribute key). For additional options, see Schema below.</p> 
+                <p>Default: <code>null</code></p>
+                <pre class="brush: js">
+                  var json = [{"col1":"row1", "col2":"row1", "col3":"row1"}, {"col1":"row2", "col2":"row2", "col3":"row2"}];
+                  $('#columns').columns({ 
+                  	data: json,
+                    schema:[
+                    	{ "header":"Column 1","key":"col1"},
+                    	{ "header":"Column 2","key":"col2"}
+                    ]
+                  });</pre>
+              </div>
+            </li>
+            <li>
+              <h3>searchableFields</h3>
+              <div class="content">
+                <p><strong>Array of JSON keys</strong></p>
+                <p>If set, the listed keys and there associated values will be searched. If null, all data is searchable.</p>
+                <p>Default: <code>null</code></p>
+                <pre class="brush: js">
+                  var json = [{"col1":"row1", "col2":"row1", "col3":"row1"}, {"col1":"row2", "col2":"row2", "col3":"row2"}];
+                  $('#paginate').paginate({ 
+                    data: json,
+                    searchableFields: ['col1'],
+                    schema:[
+                      { "header":"Column 1","key":"col1"},
+                      { "header":"Column 2","key":"col2"}
+                    ]
+                  });</pre>
+              </div>
+            </li>
+            <li>
+              <h3>showRows</h3>
+              <div class="content">
+                <p><strong>Array of Numbers</strong></p>
+                <p>If set, displays a select box with each number as an option.</p>
+                <p>Default: <code>[5, 10, 25, 50]</code></p>
+              </div>
+            </li>
+            <li>
+              <h3>size</h3>
+              <div class="content">
+                <p><strong>Number</strong></p>
+                <p>The number of rows to display per page.</p>
+                <p>Default: <code>10</code></p>
+              </div>
+            </li>
+            <li>
+              <h3>sortableFields</h3>
+              <div class="content">
+                <p><strong>Array of JSON keys</strong></p>
+                <p>If set, the columns associated with the listed keys will be sortable. If null, all columns will be sortable.</p>
+                <p>Default: <code>null</code></p>
+                <pre class="brush: js">
+                  var json = [{"col1":"row1", "col2":"row1", "col3":"row1"}, {"col1":"row2", "col2":"row2", "col3":"row2"}];
+                  $('#paginate').paginate({ 
+                    data: json,
+                    sortableFields: ['col1'],
+                    schema:[
+                      { "header":"Column 1","key":"col1"},
+                      { "header":"Column 2","key":"col2"}
+                    ]
+                  });</pre>
+              </div>
+            </li>
+            <li>
+              <h3>sortBy</h3>
+              <div class="content">
+                <p><strong>String</strong></p>
+                <p>If set, sort data by at that attribute key</p>
+                <p>Default: <code>null</code></p>
+                <pre class="brush: js">
+                  var json = [{"col1":"row1", "col2":"row1", "col3":"row1"}, {"col1":"row2", "col2":"row2", "col3":"row2"}];
+                  $('#columns').columns({ 
+                  	data: json,
+                    sortBy: 'col2'
+                  });</pre>
+              </div>
+            </li> 
+            <li>
+              <h3>templateFile</h3>
+              <div class="content">
+                <p><strong>String</strong></p>
+                <p>The path to an external Mustache Template. If null, default template will be used.</p>
+                <p>Default: <code>null</code></p>
+                <pre class="brush: js">
+                  var json = [{"col1":"row1", "col2":"row1", "col3":"row1"}, {"col1":"row2", "col2":"row2", "col3":"row2"}];
+                  $('#columns').columns({ 
+                    data: json,
+                    template: 'template/custom.mst'
+                  });</pre>
+              </div>
+            </li>        
+          </ul> 
+
+        </div>
+      </div>	
+
+      <div class="section">
+        <h3>Schema</h3>
+        <div class="content">
+          <p>Schema is a blueprint for columns to build the table. With schema you can set column order and column header or even remove columns all together from the original data. Schema allows for templates to be create for row data, and conditional statements can be added to show only desired data.</p>
+
+          <p>Schema is an Array of Objects. Each object serves as a table column, and must contain a <code>header</code> and <code>key</code> attribute. The order in which the object are place in the array is the order that they will appear in the table.  See below for additional information about the different options that can be applied to each schema object.</p>
+          
+          <ul> 
+          		<li>
+      				<h3>condition</h3>
+      				<div class="content">
+      					<p><strong>Function</strong></p>
+      					<p>This is a condition that each column data must meet to be displayed. The function must return a Boolean.</p>
+      					<pre class="brush: js">
+						  var json = [{"col1":"1", "col2":"one"}, {"col1":"2", "col2":"two"}, {"col1":"3", "col2":"three"}];
+						  $('#columns').columns({ 
+							data: json,
+							schema:[
+								{"header":"Numbers","key":"col1", "condition":function(val) { return (val%2 != 0); /*only show odd numbers */ } },
+								{"header":"Words","key":"col2"}
+							]
+						  });</pre>
+      				</div>
+      			</li>
+      			<li>
+      				<h3>header</h3>
+      				<div class="content">
+      					<p><strong>String</strong></p>
+      					<p><em>REQUIRED.</em> The title for the column header.</p>
+      					<pre class="brush: js">
+						  var json = [{"col1":"1", "col2":"one"}, {"col1":"2", "col2":"two"}, {"col1":"3", "col2":"three"}];
+						  $('#columns').columns({ 
+							data: json,
+							schema:[
+								{"header":"Numbers","key":"col1"},
+								{"header":"Words","key":"col2"}
+							]
+						  });</pre>
+      				</div>
+      			</li>
+      			<li>
+      				<h3>key</h3>
+      				<div class="content">
+      					<p><strong>String</strong></p>
+      					<p><em>REQUIRED.</em> The corresponding data attribute key for this columns data.</p>
+      					<pre class="brush: js">
+						  var json = [{"col1":"1", "col2":"one"}, {"col1":"2", "col2":"two"}, {"col1":"3", "col2":"three"}];
+						  $('#columns').columns({ 
+							data: json,
+							schema:[
+								{"header":"Numbers","key":"col1"},
+								{"header":"Words","key":"col2"}
+							]
+						  });</pre>
+      				</div>
+      			</li>
+      			<li>
+      				<h3>template</h3>
+      				<div class="content">
+      					<p><strong>String</strong></p>
+      					<p>The template allow for a row data to be customized to include additional HTML and content. Data values be added to the template by including the data attribute key between double curly brackets (<code>{{col1}}</code>).</p>
+      					<pre class="brush: js">
+						  var json = [{"col1":"1", "col2":"one"}, {"col1":"2", "col2":"two"}, {"col1":"3", "col2":"three"}];
+						  $('#columns').columns({ 
+							data: json,
+							schema:[
+								{"header":"Numbers","key":"col1", "template":"This is row <strong>{{col1}}</strong>." },
+								{"header":"Words","key":"col2"}
+							]
+						  });</pre>
+      				</div>
+      			</li>
+		      </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>API</h3>
+        <div class="content">
+          <ul> 
+              <li>
+                <h3>getObject</h3>
+                <div class="content">
+                  <p><strong>Method</strong></p>
+                  <p>This method returns Columns' object</p>
+                  
+                  <p>External call:</p>
+                  <pre class="brush: js">
+                    var columns_object = $('#columns').columns('getObject');
+                  </pre>
+
+                  <p>To call internally from a plugin use <code>this</code>.</p> 
+
+                </div>
+              </li>
+              
+              <li>
+                <h3>getPage</h3>
+                <div class="content">
+                  <p><strong>Method</strong></p>
+                  <p>This method returns the table's current page.</p>
+                  
+                  <p>External call:</p>
+                  <pre class="brush: js">
+                    var columns_object = $('#columns').columns('getPage');
+                  </pre>
+
+                  <p>To call internally from a plugin use <code>this.page</code>.</p> 
+
+                </div>
+              </li>
+              
+              <li>
+                <h3>getQuery</h3>
+                <div class="content">
+                  <p><strong>Method</strong></p>
+                  <p>This method returns the current search query.</p>
+                  
+                  <p>External call:</p>
+                  <pre class="brush: js">
+                    var columns_object = $('#columns').columns('getQuery');
+                  </pre>
+
+                  <p>To call internally from a plugin use <code>this.query</code>.</p> 
+
+                </div>
+              </li>
+              
+              <li>
+                <h3>getRange</h3>
+                <div class="content">
+                  <p><strong>Method</strong></p>
+                  <p>This method returns the table's current page range. Range is returned as an object. </p>
+                  
+                  <p>External call:</p>
+                  <pre class="brush: js">
+                    var columns_object = $('#columns').columns('getRange');
+                  </pre>
+
+                  <p>To call internally from a plugin use <code>this.range</code>.</p> 
+
+                </div>
+              </li>
+              
+              <li>
+                <h3>getRows</h3>
+                <div class="content">
+                  <p><strong>Method</strong></p>
+                  <p>This method returns the table's current page rows. Rows are returned as an array. </p>
+                  
+                  <p>External call:</p>
+                  <pre class="brush: js">
+                    var columns_object = $('#columns').columns('getRows');
+                  </pre>
+
+                  <p>To call internally from a plugin use <code>this.rows</code>.</p> 
+
+                </div>
+              </li>
+              
+              <li>
+                <h3>getTemplate</h3>
+                <div class="content">
+                  <p><strong>Method</strong></p>
+                  <p>This method returns the Column's Mustache template.</p>
+                  
+                  <p>External call:</p>
+                  <pre class="brush: js">
+                    var columns_object = $('#columns').columns('getTemplate');
+                  </pre>
+
+                  <p>To call internally from a plugin use <code>this.template</code>.</p> 
+
+                </div>
+              </li>
+              
+              <li>
+                <h3>getThead</h3>
+                <div class="content">
+                  <p><strong>Method</strong></p>
+                  <p>This method returns the table's thead. Thead is returned as an array.</p>
+                  
+                  <p>External call:</p>
+                  <pre class="brush: js">
+                    var columns_object = $('#columns').columns('getThead');
+                  </pre>
+
+                  <p>To call internally from a plugin use <code>this.thead</code>.</p> 
+
+                </div>
+              </li>
+
+              <li>
+                <h3>getTotal</h3>
+                <div class="content">
+                  <p><strong>Method</strong></p>
+                  <p>This method returns an interger of the table's current total. Note: This is total after filters and conditions have been applied.</p>
+                  
+                  <p>External call:</p>
+                  <pre class="brush: js">
+                    var columns_object = $('#columns').columns('getTotal');
+                  </pre>
+
+                  <p>To call internally from a plugin use <code>this.total</code>.</p> 
+
+                </div>
+              </li>
+
+              <li>
+                <h3>getView</h3>
+                <div class="content">
+                  <p><strong>Method</strong></p>
+                  <p>This method returns the view object that was used to render the Mustache template.</p>
+                  
+                  <p>External call:</p>
+                  <pre class="brush: js">
+                    var columns_object = $('#columns').columns('getView');
+                  </pre>
+
+                  <p>To call internally from a plugin use <code>this.view</code>.</p> 
+
+                </div>
+              </li>
+
+              <li>
+                <h3>gotoPage(int)</h3>
+                <div class="content">
+                  <p><strong>Method</strong></p>
+                  <p>This method takes an intiger and if the page exists, changes the table's current page. Note: <code>false</code> is returned if page doesn't exist.</p>
+                  
+                  <p>External call:</p>
+                  <pre class="brush: js">
+                    var columns_object = $('#columns').columns('gotoPage', 3);
+                  </pre>
+
+                  <p>To call internally from a plugin use <code>this.gotoPage(3)</code>.</p> 
+
+                </div>
+              </li>
+              
+
+              <li>
+                <h3>pageExists(int)</h3>
+                <div class="content">
+                  <p><strong>Method</strong></p>
+                  <p>This method takes an intiger and checks if the page exists in the current table. Returns boolean. Note: Pages start with 1.</p>
+                  
+                  <p>External call:</p>
+                  <pre class="brush: js">
+                    var columns_object = $('#columns').columns('pageExists', 3);
+                  </pre>
+
+                  <p>To call internally from a plugin use <code>this.pageExists(3)</code>.</p> 
+
+                </div>
+              </li>
+
+              <li>
+                <h3>resetData</h3>
+                <div class="content">
+                  <p><strong>Method</strong></p>
+                  <p>This method resets data to it original state and returns the result.</p>
+                  
+                  <p>External call:</p>
+                  <pre class="brush: js">
+                    var columns_object = $('#columns').columns('resetData');
+                  </pre>
+
+                  <p>To call internally from a plugin use <code>this.resetDate()</code>.</p> 
+
+                </div>
+              </li>
+              
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Creating plugins</h3>
+        <div class="content">
+          <p>Columns is extensible through the use of plugins and Columns API. </p>
+
+          <p>The basic plugin structure should look like this. All plugins must include a <code>init</code> method</p> 
+
+          <pre class="brush: js">
+              if (typeof ColumnsPlugins === 'undefined') var ColumnsPlugins = {};
+                ColumnsPlugins.your_plugin = {
+                    init: function() {
+
+                    }
+                }
+          </pre> 
+          
+          <p>Plugins can be added to Columns by using the plugins option</p> 
+          
+          <pre class="brush: js">
+              var json = [{"col1":"row1", "col2":"row1", "col3":"row1"}, {"col1":"row2", "col2":"row2", "col3":"row2"}];
+              $('#columns').columns({ 
+                data: json,
+                plugins: ['gotopage']
+              });
+          </pre>
+        </div>
+      </div>
+      
+      
+       <a name="log"></a>
+       <div class="section">
+        <h3>Change Log</h3>
+        <div class="log"> 
+            <h4>Version 2.0.0</h4> 
+            <p>May 1, 2014</p>
+            <ul> 
+              <li>Complete restructing of code.</li> 
+              <li>Utilizes <a href="https://github.com/janl/mustache.js">Mustache</a> templates for better flexibility</li> 
+              <li>Greatly improved API</li> 
+              <li>Extensible through the use of plugins</li> 
+            </ul>           
+            <h4>Version 1.0.0</h4> 
+            <p>Jan. 29, 2014</p> 
+             <ul> 
+            	<li>Turn your JSON data into HTML tables that are sortable, searchable, and paginating with Columns.</li>
+            </ul> 
+        </div>  
+      </div>
+      <!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+      <script type="text/javascript">
+	      SyntaxHighlighter.all()
+	  </script>
+
+  	</body>
+</html>
