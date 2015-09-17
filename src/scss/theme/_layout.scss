@@ -1,0 +1,47 @@
+body {
+    background-color: #fff;
+    //background-image: url('../images/rip-reverse.png');
+    //background-image: url('../images/cutout.png');
+    //background-image: url('../images/stain-bottom.png');
+    //background-repeat: no-repeat;
+    //background-position: right bottom;
+    color: #333;
+    font-family: $font-family-serif;
+    font-size: 21px;
+    height: auto;
+    
+
+
+    &:before {
+        background-color: transparent;
+        background-image: url('../images/stain-bottom.png');
+        background-position: right bottom;
+        background-repeat: no-repeat;
+        content:"";
+        height: 100%;
+        left: 0;
+        position:fixed;
+        width: 100%;
+        top: 0;
+    }
+
+}
+
+.header {
+    
+}
+
+.main {
+    min-height: 600px;
+    padding: 50px 0;
+}
+
+.footer {
+    p {
+        line-height: 1;
+    }
+    
+    a {
+        font-weight: bold;
+    }
+}
